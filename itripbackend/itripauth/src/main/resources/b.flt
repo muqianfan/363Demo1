@@ -1,0 +1,5 @@
+------------模板信息
+<#list ll as Userpojo>
+    ${Userpojo.id}  ${Userpojo.name}
+</#list>
+------------模板信息

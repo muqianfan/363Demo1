@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+     
+     
+    <!--<mvc:resources location="/images/" mapping="/images/*"></mvc:resources>
+    <mvc:resources location="/js/" mapping="/js/*"></mvc:resources>
+    <mvc:resources location="/css/" mapping="/css/*"></mvc:resources>
+    <mvc:resources location="/fonts/" mapping="/fonts/*"></mvc:resources>
+    <mvc:resources location="/jqvmap/" mapping="/jqvmap/*"></mvc:resources>
+    <mvc:resources location="/jqvmap/data/" mapping="/jqvmap/data/*"></mvc:resources>
+    <mvc:resources location="/jqvmap/maps/" mapping="/jqvmap/maps/*"></mvc:resources>
+    <mvc:resources location="/jqvmap/maps/continents/" mapping="/jqvmap/maps/continents/*"></mvc:resources>-->
+    <context:component-scan base-package="cn.itrip" />
+    <mvc:annotation-driven />
+
+
+      <!-- /M/list.jsp -->
+     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/M/"/>
+         <property name="suffix" value=".jsp" />
+     </bean>
+     
+      <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+   		 <property name="maxUploadSize" value="5000000"/>
+   		 <property name="defaultEncoding" value="UTF-8"/>
+      </bean>
+      
+      <!--<mvc:interceptors>
+          <mvc:interceptor>
+              <mvc:mapping path="/**"/>
+               <mvc:exclude-mapping path="/login/toLogin"/>
+               <mvc:exclude-mapping path="/js/*"/>
+               <mvc:exclude-mapping path="/css/*"/>
+               <mvc:exclude-mapping path="/images/*"/>
+              <mvc:exclude-mapping path="/fonts/*"/>
+              <mvc:exclude-mapping path="/jqvmap/*"/>
+              <mvc:exclude-mapping path="/jqvmap/data/*"/>
+              <mvc:exclude-mapping path="/jqvmap/maps/*"/>
+              <mvc:exclude-mapping path="/jqvmap/maps/continents/*"/>
+              <bean class="com.bdqn.util.Loginfilter"/>
+          </mvc:interceptor>
+      </mvc:interceptors>
+      
+      <mvc:resources mapping="statics/uploadfiles/**" location="/statics/uploadfiles/" />-->
+    
+        
+</beans>
